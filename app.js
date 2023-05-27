@@ -56,7 +56,7 @@ mongoose.connect( connection_url, { useNewUrlParser: true, useUnifiedTopology: t
     .catch((error) => console.log(error));
 
 app.post('/api/register', async(req,res) => {
-    console.log(model)
+    console.log(req.body)
     try {
         const nwePassword = await bcrypt.hash(req.body.password, 7)
 
