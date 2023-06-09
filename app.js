@@ -58,14 +58,14 @@ mongoose.connect( connection_url, { useNewUrlParser: true, useUnifiedTopology: t
 app.post('/api/register', async(req,res) => {
     console.log(req.body)
     try {
-        const nwePassword = await bcrypt.hash(req.body.password, 7)
+        const newPassword = await bcrypt.hash(req.body.passWord, 7)
 
         await User.create (
             {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
-                password: nwePassword,
+                password: newPassword,
             }
         )
         res.json({ status: "successfully login"})
